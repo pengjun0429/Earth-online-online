@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地球Online | 官網入口</title>
+    <style>
+        :root {
+            --neon-green: #4ade80;
+            --main-blue: #00d4ff;
+            --text-gray: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* 英雄區塊：巨大的星球弧線 */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 12vh;
+            background: radial-gradient(circle at 50% 150%, #112244 0%, #000 70%);
+            position: relative;
+        }
+
+        /* 底部巨大星球陰影 */
+        .planet-arc {
+            position: absolute;
+            bottom: -30%;
+            width: 180%;
+            height: 80%;
+            background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=2000') no-repeat center top;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: inset 0 30px 60px rgba(0, 212, 255, 0.2);
+            z-index: 1;
+            filter: brightness(0.7);
+        }
+
+        .content {
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .top-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 18px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .eng-title {
+            font-size: 1.1rem;
+            color: #666;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        /* 勾選清單佈局 */
+        .check-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--main-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--main-blue);
+            font-size: 11px;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        /* 數據顯示 */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: bold;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin-bottom: 8px;
+            background: linear-gradient(to bottom, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #777;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 1px;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* 按鈕優化 */
+        .btn-enter {
+            padding: 15px 60px;
+            background: rgba(26, 54, 93, 0.4);
+            border: 1px solid rgba(0, 212, 255, 0.5);
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            letter-spacing: 4px;
+            transition: all 0.4s;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-enter:hover {
+            background: var(--main-blue);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            z-index: 2;
+            font-size: 0.75rem;
+            color: #444;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="content">
+            <p class="top-desc">每個玩家都是主角，每一秒都在改變世界</p>
+            <h1>地球ONLINE</h1>
+            <div class="eng-title">Respected Players, Welcome To 'Earth Online'</div>
+
+            <div class="check-list">
+                <div class="check-item"><span class="check-icon">✓</span> 自研超真實物理引擎</div>
+                <div class="check-item"><span class="check-icon">✓</span> 擬真24H晝夜運轉時間</div>
+                <div class="check-item"><span class="check-icon">✓</span> 跨233個國家與區域</div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-value" id="count">8,105,241,302</div>
+                    <div class="stat-label">
+                        <span class="live-dot"></span> 超過81億位玩家在線
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-enter" onclick="alert('連結中... 歡迎進入伺服器')">
+                歡迎進入伺服器
+            </button>
+        </div>
+
+        <div class="planet-arc"></div>
+        <div class="footer">系統由 MOSS 平台驅動 | 授權給：使用者</div>
+    </section>
+
+    <script>
+        // 數字跳動模擬
+        let players = 8105241302;
+        function updateCount() {
+            players += Math.floor(Math.random() * 4) - 1; 
+            document.getElementById('count').innerText = players.toLocaleString();
+        }
+        setInterval(updateCount, 1500);
+    </script>
+</body>
+</html>
